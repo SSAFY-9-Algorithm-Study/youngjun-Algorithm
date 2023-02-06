@@ -7,7 +7,7 @@ import java.util.StringTokenizer;
 
 
 //https://www.acmicpc.net/problem/11659 구간합 구하기
-public class p11659 {
+public class P11659 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 

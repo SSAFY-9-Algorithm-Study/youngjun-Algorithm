@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 //https://www.acmicpc.net/problem/13015
-public class p13015v2 {
+public class P13015v2 {
     public static void main(String[] args) throws IOException {
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
         int num = Integer.parseInt(bf.readLine());
