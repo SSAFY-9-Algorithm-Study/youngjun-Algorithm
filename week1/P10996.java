@@ -1,11 +1,8 @@
 package week1;
-
-
-//https://www.acmicpc.net/problem/10996 별찍기 21
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+//https://www.acmicpc.net/problem/10996 별찍기 21
 
 public class P10996 {
     public static void main(String[] args) throws IOException {
