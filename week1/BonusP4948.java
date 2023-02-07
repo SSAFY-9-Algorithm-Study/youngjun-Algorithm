@@ -6,7 +6,6 @@ import java.io.InputStreamReader;
 
 //https://www.acmicpc.net/problem/4948
 public class BonusP4948 {
-
     public static void main(String[] args) throws IOException {
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
         while(true){
@@ -15,13 +14,13 @@ public class BonusP4948 {
             if(num==0)
                 break;
             for (int i = num+1; i <= num*2; i++) {
-                if(primaryNums(i)) cnt++;
+                if(primeNums(i)) cnt++;
             }
             System.out.println(cnt);
         }
     }
 
-    public static boolean primaryNums(int a) {
+    public static boolean primeNums(int a) {
         if (a < 2) return false;
         else if (a == 2) return true;
         else {
