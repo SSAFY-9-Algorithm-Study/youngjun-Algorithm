@@ -1,12 +1,10 @@
 package week1;
-
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
-
 //https://www.acmicpc.net/problem/2738 행렬 덧셈
+
 public class P2738 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
