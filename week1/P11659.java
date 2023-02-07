@@ -1,10 +1,8 @@
 package week1;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
-
 
 //https://www.acmicpc.net/problem/11659 구간합 구하기
 public class P11659 {
