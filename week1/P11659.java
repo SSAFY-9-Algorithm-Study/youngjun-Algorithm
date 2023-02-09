@@ -12,7 +12,7 @@ public class P11659 {
         StringTokenizer st = new StringTokenizer(br.readLine());
         int nums = Integer.parseInt(st.nextToken());
         int sections = Integer.parseInt(st.nextToken());
-        int numArray[] = new int[nums+1];
+        int[] numArray = new int[nums+1];
 
         st = new StringTokenizer(br.readLine());
         for (int i = 1; i <= nums; i++) {
