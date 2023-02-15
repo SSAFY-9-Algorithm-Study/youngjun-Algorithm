@@ -20,6 +20,8 @@ public class P1427 {
             System.out.print(nums);
             
         }
+        
+        bf.close();
 
     }
 }

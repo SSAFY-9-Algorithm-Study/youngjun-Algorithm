@@ -68,6 +68,8 @@ public class P2108 {
 		//최대최소차이
 		System.out.println(arr[n-1]-arr[0]);
 		
+		bf.close();
+		
 		
 	}
 	

@@ -27,11 +27,15 @@ public class P1181 {
 			}
 		});
 		
+		
+		//중복 값 제거
 		for (int i = 0; i < words.length; i++) {
 			if(i<words.length-1 && !words[i].equals(words[i+1]))
 			System.out.println(words[i]);
 		}
 		System.out.println(words[words.length-1]);
+		
+		bf.close();
 	}
 
 }

@@ -22,7 +22,6 @@ public class P18870 {
 			
 		}
 		
-		
 		System.arraycopy(arr, 0, orderedArr, 0, n);
 		Arrays.sort(orderedArr);
 		int rank = 0;
@@ -38,13 +37,15 @@ public class P18870 {
 			 sb.append(map.get(key)).append(' ');
 		}
 		 System.out.println(sb);
+		 
+		 bf.close();
 
 	}
 
 }
 
 
-//죽어라 자바
+
 //for (int i = 0; i < n-1; i++) {
 //	if(orderedArr[i]!=orderedArr[i+1])
 //		undupArr.add(orderedArr[i]);
@@ -59,3 +60,4 @@ public class P18870 {
 //		}
 //	}
 //}
+
