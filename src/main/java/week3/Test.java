@@ -17,7 +17,9 @@ public class Test {
 		tMap.put(1, "aaa");
 		tMap.put(1, "cccc");
 		
-		map.replace(2, "ddd");
+		String a = tMap.replace(2, "ddd");
+		System.out.println(a);
+		System.out.println(tMap);
 		System.out.println(tMap.firstEntry());
 		System.out.println(tMap.ceilingEntry(6)); //6 이사큰 키 중 가장 작은 키
 	}
