@@ -1,4 +1,4 @@
-package week3;
+package week3.hw;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
 
-public class P2910 {
+public class Map_P2910 {
 	
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -20,7 +20,7 @@ public class P2910 {
 		StringTokenizer st = new StringTokenizer(br.readLine());
 		int n = Integer.parseInt(st.nextToken());
 		int maxNum = Integer.parseInt(st.nextToken());
-		Map<Integer, Integer> m = new LinkedHashMap<>();
+		Map<Integer, Integer> m = new LinkedHashMap<>();//먼저 들어온 값 저장을 위해 linkedHashMap 사용
 		
 		st = new StringTokenizer(br.readLine());
 		for (int i = 0; i < n; i++) {

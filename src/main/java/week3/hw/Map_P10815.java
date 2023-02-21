@@ -1,4 +1,4 @@
-package week3;
+package week3.hw;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.StringTokenizer;
 
-public class P10815 {
+public class Map_P10815 {
 	
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
@@ -24,15 +24,13 @@ public class P10815 {
 		int arr[] = new int[n2];
 		st = new StringTokenizer(bf.readLine());
 		for (int i = 0; i < n2; i++) {
-			arr[i] = Integer.parseInt(st.nextToken());
+				if (map.containsKey(Integer.parseInt(st.nextToken())))
+					System.out.print("1 ");
+				else
+					System.out.print("0 ");
 		}
 		
-		for(int val : arr) {
-			if (map.containsKey(val))
-				System.out.print("1 ");
-			else
-				System.out.print("0 ");
-		}
+		
 		
 		
 	}

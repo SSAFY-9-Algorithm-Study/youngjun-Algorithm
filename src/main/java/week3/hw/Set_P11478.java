@@ -1,4 +1,4 @@
-package week3;
+package week3.hw;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.HashSet;
 import java.util.Set;
 
-public class P11478 {
+public class Set_P11478 {
 	
 	public static void main(String[] args) throws IOException {
 		

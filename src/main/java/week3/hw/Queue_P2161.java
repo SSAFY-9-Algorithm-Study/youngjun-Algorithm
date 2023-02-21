@@ -1,4 +1,4 @@
-package week3;
+package week3.hw;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -8,7 +8,7 @@ import java.util.Deque;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class P2161 {
+public class Queue_P2161 {
 	
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
