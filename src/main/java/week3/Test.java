@@ -22,6 +22,12 @@ public class Test {
 		System.out.println(tMap);
 		System.out.println(tMap.firstEntry());
 		System.out.println(tMap.ceilingEntry(6)); //6 이사큰 키 중 가장 작은 키
+		
+		System.out.println((int)'0');
+		
+		StringBuffer sb = new StringBuffer("abc");
+		String rev = sb.reverse().toString();
+		System.out.println(rev);
 	}
 
 }
