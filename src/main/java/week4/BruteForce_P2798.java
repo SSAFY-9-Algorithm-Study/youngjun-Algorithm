@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class P2798 {
+public class BruteForce_P2798 {
 	static int N;
 	static int M;
 	static int[] nums;
