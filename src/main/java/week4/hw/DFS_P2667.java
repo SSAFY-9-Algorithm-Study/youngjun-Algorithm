@@ -1,9 +1,10 @@
-package week4;
+package week4.hw;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class DFS_P2667 {
@@ -27,7 +28,6 @@ public class DFS_P2667 {
 		}
 		
 		for (int i = 0; i < n; i++) {
-//			System.out.println();
 			for (int j = 0; j < n; j++) {
 				if(arr[i][j] == 1) {
 					arr[i][j]=2;
@@ -37,13 +37,13 @@ public class DFS_P2667 {
 						cnt=1;
 					}
 				}
-//				System.out.print(arr[i][j]);
+
 				
 			}
 		}
 		
 		
-		
+		Collections.sort(ans);
 		System.out.println(ans.size());
 		for(int answer : ans) {
 			System.out.println(answer);
@@ -57,24 +57,18 @@ public class DFS_P2667 {
 		if(y+dy[0]>=0 && arr[x+dx[0]][y+dy[0]]==1) {
 			arr[x+dx[0]][y+dy[0]] = checkNum;
 			cnt++;
-//			System.out.println("x is " + (x+dx[0]) + "y is " + (y+dy[0]));
-//			System.out.println("cnt is" + cnt);
 			dfs(x+dx[0],y+dy[0]);
 		}
 		
 		if(y+dy[1]<n && arr[x+dx[1]][y+dy[1]]==1) {
 			arr[x+dx[1]][y+dy[1]] = checkNum;
 			cnt++;
-//			System.out.println("x is " + (x+dx[1]) + "y is " + (y+dy[1]));
-//			System.out.println("cnt is" + cnt);
 			dfs(x+dx[1],y+dy[1]);
 		}
 		
 		if(x+dx[2]>=0 && arr[x+dx[2]][y+dy[2]]==1) {
 			arr[x+dx[2]][y+dy[2]] = checkNum;
 			cnt++;
-//			System.out.println("x is " + (x+dx[2]) + "y is " + (y+dy[2]));
-//			System.out.println("cnt is" + cnt);
 			dfs(x+dx[2],y+dy[2]);
 			
 		}
@@ -82,8 +76,6 @@ public class DFS_P2667 {
 		if(x+dx[3]<n && arr[x+dx[3]][y+dy[3]]==1) {
 			arr[x+dx[3]][y+dy[3]] = checkNum;
 			cnt++;
-//			System.out.println("x is " + (x+dx[3]) + "y is " + (y+dy[3]));
-//			System.out.println("cnt is" + cnt);
 			dfs(x+dx[3],y+dy[3]);
 		}
 

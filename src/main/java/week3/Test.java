@@ -11,7 +11,6 @@ public class Test {
 	public static void main(String[] args) {
 		TreeMap<Integer, String> tMap = new TreeMap<Integer, String>();
 		Map<Integer, String> map = new HashMap<Integer, String>();
-<<<<<<< HEAD
 		Deque<Integer> deq = new ArrayDeque<>();
 //		tMap.put(5, "fff");
 //		tMap.put(3, "bbb");
@@ -31,7 +30,7 @@ public class Test {
 //		StringBuffer sb = new StringBuffer("abc");
 //		String rev = sb.reverse().toString();
 //		System.out.println(rev);
-=======
+
 		
 		tMap.put(5, "fff");
 		tMap.put(3, "bbb");
@@ -45,16 +44,14 @@ public class Test {
 		System.out.println(tMap);
 		System.out.println(tMap.firstEntry());
 		System.out.println(tMap.ceilingEntry(6)); //6 이사큰 키 중 가장 작은 키
-<<<<<<< HEAD
+
 		
 		System.out.println((int)'0');
 		
 		StringBuffer sb = new StringBuffer("abc");
 		String rev = sb.reverse().toString();
 		System.out.println(rev);
-=======
->>>>>>> parent of 7d75b6f (0222 : Practice Brute Force)
->>>>>>> 29770e33052b212ce2eee5cdffad9945ec78087b
+
 	}
 
 }
