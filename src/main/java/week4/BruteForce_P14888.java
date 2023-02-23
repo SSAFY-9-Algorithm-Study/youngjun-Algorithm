@@ -5,25 +5,28 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.Buffer;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.StringTokenizer;
 
 public class BruteForce_P14888 {
 
 	static int n;
-	static int calN;
 	static int nums[];
 	static int cals[];
-	static List res;
+	static int res[];
+	static int max = Integer.MIN_VALUE;
+	static int min = Integer.MAX_VALUE;
+	static int test = 0;
+	
 
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st;
 		n = Integer.parseInt(br.readLine());
-		calN = n - 1;
 		nums = new int[n];
 		cals = new int[4];
-		res = new ArrayList<Integer>();
+		res = new int[n - 1];
 
 		st = new StringTokenizer(br.readLine());
 		for (int i = 0; i < n; i++) {
@@ -35,34 +38,38 @@ public class BruteForce_P14888 {
 			cals[i] = Integer.parseInt(st.nextToken());
 		}
 
-		dfs(0, cals);
+		dfs(0);
+		System.out.println(max);
+		System.out.println(min);
+		System.out.println(test);
 	}
 
-	public static void dfs(int L, int[] cals) {
-		
+	public static void dfs(int L) {
+
 		if (L == (n - 1)) {
-			int a = calculate(nums, res);
-			System.out.println(res);
-			System.out.println(a);
-			res.clear();
+			int ans = calculate(nums, res);
+			test++;
+			max = ans>max ? ans : max; 
+			min = ans<min ? ans : min; 
 		}
 
 		else {
 			for (int j = 0; j < 4; j++) {
 				if (cals[j] != 0) {
-					res.add(j);
-					cals[j] = 0;
-					dfs(L + 1, cals);
+					res[L] = j;
+					cals[j] -= 1;
+					dfs(L + 1);
+					cals[j] += 1;
 				}
-				cals[j] = 1;
+
 			}
 		}
 	}
 
-	public static int calculate(int[] nums, List<Integer> res) {
+	public static int calculate(int[] nums, int[] res) {
 		int ans = nums[0];
-		for (int i = 0; i < res.size(); i++) {
-			int ops = res.get(i);
+		for (int i = 0; i < res.length; i++) {
+			int ops = res[i];
 			if (ops == 0)
 				ans += nums[i + 1];
 			else if (ops == 1)
@@ -74,7 +81,8 @@ public class BruteForce_P14888 {
 					ans = -ans;
 					ans /= nums[i + 1];
 					ans = -ans;
-				}
+				} else
+					ans /= nums[i + 1];
 			}
 		}
 		return ans;
