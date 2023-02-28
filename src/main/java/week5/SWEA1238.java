@@ -85,9 +85,12 @@ public class SWEA1238 {
 		deq.add(arr);
 
 		while (!deq.isEmpty()) {
-			int first = deq.pollFirst()[0];
+			int[] firstDeq = deq.pollFirst();
+			int first = firstDeq[0];
+			call = firstDeq[1];
+			
 //			System.out.println("first is " + first);
-//			System.out.println(map);
+			System.out.println(map);
 			if (map.containsKey(Integer.valueOf(first))) {
 //				System.out.println("contains!");
 				for (int val : map.get(first)) {
