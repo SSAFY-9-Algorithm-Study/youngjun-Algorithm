@@ -39,10 +39,7 @@ public class SWEA_숫자만들기 {
 
 			int[] b = opArr.clone();
 
-//			System.out.println(n);
-//			System.out.println(Arrays.toString(b));
-
-			dfs(n - 1, 0, b, new ArrayList<>());
+			dfs(n - 1, 0, b, new int[n-1]);
 			System.out.println("#" + t + " " + (max-min));
 			max = Integer.MIN_VALUE;
 			min = Integer.MAX_VALUE;
@@ -51,14 +48,11 @@ public class SWEA_숫자만들기 {
 
 	}
 
-	public static void dfs(int L, int level, int[] b, List<Integer> res) {
-//		System.out.println(Arrays.toString(b));
+	public static void dfs(int L, int level, int[] b, int[] res) {
 
 		if (level == L) {
-//			System.out.println(Arrays.toString(b));
-//			System.out.println(res);
-			for (int i = 0; i < res.size(); i++) {
-				startNum = operate(startNum,res.get(i),numArr[i+1]);
+			for (int i = 0; i < L; i++) {
+				startNum = operate(startNum,res[i],numArr[i+1]);
 			}
 			if(max<startNum) {
 				max = startNum;
@@ -71,14 +65,11 @@ public class SWEA_숫자만들기 {
 		}
 
 		else {
-//			System.out.println("dfs!");
 			for (int i = 0; i < b.length; i++) {
 				if (b[i] > 0) {
 					b[i] -= 1;
-					res.add(i);
+					res[level] = i;
 					dfs(L, level + 1, b, res);
-//					System.out.println(level+1);
-					res.remove(res.size()-1);
 					b[i] += 1;
 				}
 			}

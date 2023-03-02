@@ -1,6 +1,7 @@
 package week5;
 
 import java.util.ArrayDeque;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Deque;
@@ -16,6 +17,7 @@ public class Test {
 	
 	public static void main(String[] args) {
 		List<Integer> a = new LinkedList<>();
+		List<Integer> c = new ArrayList<Integer>();
 		Queue<Integer> b = new PriorityQueue<>(new Comparator<Integer>() {
 
 			@Override
@@ -34,6 +36,13 @@ public class Test {
 		a.add(1);
 		a.add(2);
 		a.add(3);
+		
+		c.add(1);
+		c.add(2);
+		c.add(3);
+		c.add(4);
+		c.remove(0);
+		System.out.println(c);
 		
 		System.out.println(a);
 	}
