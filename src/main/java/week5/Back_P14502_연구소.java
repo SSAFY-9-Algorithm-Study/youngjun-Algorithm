@@ -19,7 +19,6 @@ public class Back_P14502_연구소 {
 	static int w;
 	static int safeCnt = 0;
 	static int max = Integer.MIN_VALUE;
-	static int combCount = 0;
 	
 	public static void main(String[] args) throws IOException {
 		
@@ -47,19 +46,14 @@ public class Back_P14502_연구소 {
 				}
 			}
 		}
-		//0인 좌표들 모두 저장
-		chosenZeros = new int[zeros.size()];
-		chooseZero(0, chosenZeros);
-		System.out.println(max);
-		System.out.println(combCount);
-//		for (int i = 0; i < h; i++) {
-//			for (int j = 0; j < w; j++) {
-//				if(mat[i][j] == 2) {
-//					spread(i,j,mat);
-//				}
-//			}
-//		}
 		
+		
+		
+		//0인 좌표들 모두 저장
+		safeCnt-=3;  //safeCnt는 0의 개수이다. 0중에서 3개의 1을 고르므로 -3을 해준다.
+		chosenZeros = new int[zeros.size()];
+		chooseZero(0, chosenZeros, 0);
+		System.out.println(max);
 		
 		
 	}
@@ -83,36 +77,23 @@ public class Back_P14502_연구소 {
 				if(visited[x+dx[i]][y+dy[i]]==0 && mat[x+dx[i]][y+dy[i]]==0) {
 					cnt--;
 					visited[x+dx[i]][y+dy[i]]=1;
-//					System.out.println();
-//					System.out.println(x+dx[i]);
-//					System.out.println(y+dy[i]);
 					deq.offer(new int[] {x+dx[i], y+dy[i]});
 				}
 			}
 			
 		}
 		
-//		for (int i = 0; i < h; i++) {
-//			System.out.println();
-//			for (int j = 0; j < w; j++) {
-//				System.out.print(visited[i][j]);
-//			}
-//			
-//		}
-//		System.out.println("cnt is " + cnt);
 		return cnt;
 		
 		
 	}
 	
-	public static void chooseZero(int level, int chosenZeros[]) {
+	public static void chooseZero(int level, int chosenZeros[], int begin) {
 		if(level==3) {
 			
-			System.out.println(Arrays.toString(chosenZeros));
-			
-			int[][] newMat = new int[w][h];
-			for (int i = 0; i < w; i++) {
-				for (int j = 0; j < h; j++) {
+			int[][] newMat = new int[h][w];
+			for (int i = 0; i < h; i++) {
+				for (int j = 0; j < w; j++) {
 					newMat[i][j] = mat[i][j];
 				}
 			}
@@ -122,39 +103,26 @@ public class Back_P14502_연구소 {
 					newMat[zeros.get(i)[0]][zeros.get(i)[1]]=1;
 				}
 			}
-			
-//			for (int i = 0; i < h; i++) {
-//				System.out.println();
-//				for (int j = 0; j < w; j++) {
-//					System.out.print(newMat[i][j]);
-//					}
-//				}
-			
-			
-//			System.out.println();
+
 			int cnt = safeCnt;
 			for (int i = 0; i < h; i++) {
 				for (int j = 0; j < w; j++) {
 					if(newMat[i][j] == 2) {
 						cnt = spread(i,j,newMat,cnt);
-						
 					}
 				}
 			}
 			
-			
-//			System.out.println("cnt is " + cnt);
-			combCount++;
 			max = Math.max(max, cnt);
 		
-			visited = new int[w][h];
+			visited = new int[h][w];
 		}
 		
 		else {
-			for (int i = 0; i < chosenZeros.length; i++) {
+			for (int i = begin; i < chosenZeros.length; i++) {
 				if(chosenZeros[i]==0) {
 					chosenZeros[i]=1;
-					chooseZero(level+1, chosenZeros);
+					chooseZero(level+1, chosenZeros,i+1);
 					chosenZeros[i]=0;
 				}
 			}
