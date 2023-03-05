@@ -13,6 +13,7 @@ public class BOJ15651_N과M3 {
 	static int N;
 	static int M;
 	static int visited[];
+	static StringBuilder sb = new StringBuilder();
 	
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -25,16 +26,16 @@ public class BOJ15651_N과M3 {
 		visited = new int[N];
 		
 		permutation(N, M, 0, new int[M]);
+		System.out.println(sb);
 		
 	}
 	
 	public static void permutation(int n, int m, int level, int[] res) {
 		if(level == m) {
 			for (int i = 0; i < res.length; i++) {
-				StringBuilder sb = new StringBuilder();
 				sb.append(res[i]).append(" ");
 			}
-			System.out.println();
+			sb.append("\n");
 			return;
 		}
 		else {
