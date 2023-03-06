@@ -117,16 +117,12 @@ public class SWEA1953_탈주범검거 {
 		switch (n) {
 		case 1:
 			return new int[] { 1, 1, 1, 1 };
-
 		case 2:
 			return new int[] { 1, 0, 1, 0 };
-
 		case 3:
 			return new int[] { 0, 1, 0, 1 };
-
 		case 4:
 			return new int[] { 1, 1, 0, 0 };
-
 		case 5:
 			return new int[] { 0, 1, 1, 0 };
 		case 6:
