@@ -1,4 +1,4 @@
-package week6;
+package week6.hw;
 
 import java.io.BufferedReader;
 import java.io.IOException;

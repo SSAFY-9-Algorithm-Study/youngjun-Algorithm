@@ -1,5 +1,6 @@
 package week1;
 
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -7,9 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-//https://www.acmicpc.net/problem/1874
-
-public class BonusP1874v2 {
+public class BonusP1874 {
     public static void main(String[] args) throws IOException {
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
         int nums = Integer.parseInt(bf.readLine());
@@ -20,19 +19,25 @@ public class BonusP1874v2 {
 
         for (int i = 0; i < nums; i++) {
             int num = Integer.parseInt(bf.readLine());
-
-            for (; cur <= num; cur++) {
-                numStack.add(cur);
-                ans.add("+");
+            if(cur>num){
+                if(num!=numStack.pop()){
+                    ans.clear();
+                    ans.add("NO");
+                    break;
+                }
+                else{
+                    ans.add("-");
+                }
             }
-            if (numStack.peek() == num) {
-                numStack.pop();
+            else{
+                for (int j = cur; j <= num; j++) {
+                    numStack.add(j);
+                    ans.add("+");
+                }
+                cur = numStack.pop()+1;
                 ans.add("-");
-            } else {
-                ans.clear();
-                ans.add("NO");
-                break;
             }
+
         }
 
         for (int i = 0; i < ans.size(); i++) {
