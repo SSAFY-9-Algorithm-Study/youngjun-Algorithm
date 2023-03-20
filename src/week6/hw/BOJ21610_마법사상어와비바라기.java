@@ -1,4 +1,4 @@
-package week6;
+package week6.hw;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -102,10 +102,6 @@ public class BOJ21610_마법사상어와비바라기 {
 						curCloud[j][j2] = 0;
 				}
 			}
-
-
-
-
 		}
 
 		for (int i = 1; i <= N; i++) {
