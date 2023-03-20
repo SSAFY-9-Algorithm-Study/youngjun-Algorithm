@@ -14,6 +14,9 @@ public class BOJ14500_테트로미노 {
 	static int[][] mat;
 	static int[][] visited;
 	static int ans;
+	static int[] dx = { -1, 1, 0, 0 };
+	static int[] dy = { 0, 0, -1, 1 };
+	static Deque<int[]> deq = new ArrayDeque<int[]>();
 
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -34,47 +37,70 @@ public class BOJ14500_테트로미노 {
 
 		for (int i = 0; i < H; i++) {
 			for (int j = 0; j < W; j++) {
-				bfs(i, j, 1, mat[i][j]);
-				visited = new int[H][W];
+				visited[i][j] = 1;
+				dfs(i, j, 0, mat[i][j]);
+				visited[i][j] = 0;
+				notDfsShape(i, j);
 			}
 
-			System.out.println("ans is " + ans);
+		}
+		System.out.println(ans);
+	}
 
+	public static void dfs(int x, int y, int level, int sum) {
+
+		if (level == 3) {
+			if (sum > ans)
+				ans = Math.max(sum, ans);
+			return;
+
+		}
+
+		else {
+			for (int i = 0; i < 4; i++) {
+				int newx = x + dx[i];
+				int newy = y + dy[i];
+
+				if (newx < 0 || newx > (H - 1) || newy < 0 || newy > (W - 1) || visited[newx][newy] == 1)
+					continue;
+				visited[newx][newy] = 1;
+				dfs(newx, newy, level + 1, sum + mat[newx][newy]);
+				visited[newx][newy] = 0;
+
+			}
 		}
 	}
 
-	public static void bfs(int x, int y, int level, int sum) {
-		Deque<int[]> deq = new ArrayDeque<int[]>();
-		deq.offer(new int[] { x, y, level, sum });
+	public static void notDfsShape(int x, int y) {
+		for (int i = 0; i < 4; i++) {
+			int newx1 = x + dx[i];
+			int newy1 = y + dy[i];
+			if (newx1 < 0 || newx1 > H - 1 || newy1 < 0 || newy1 > W - 1)
+				continue;
 
-		int[] dx = { -1, 1, 0, 0 };
-		int[] dy = { 0, 0, -1, 1 };
+			for (int j = i + 1; j < 4; j++) {
 
-		while (!deq.isEmpty()) {
-			int arr[] = deq.pollFirst();
-			x = arr[0];
-			y = arr[1];
-			level = arr[2];
-			sum = arr[3];
+				int newx2 = x + dx[j];
+				int newy2 = y + dy[j];
+				if (newx2 < 0 || newx2 > H - 1 || newy2 < 0 || newy2 > W - 1)
+					continue;
 
-			if (level == 3) {
-				System.out.println(sum);
-				
-				
-				
-			} else {
-				for (int i = 0; i < 4; i++) {
-					int newx = x + dx[i];
-					int newy = y + dy[i];
-					if (newx < 0 || newx > (H - 1) || newy < 0 || newy > (W - 1))
+				for (int j2 = j + 1; j2 < 4; j2++) {
+
+					int newx3 = x + dx[j2];
+					int newy3 = y + dy[j2];
+					if (newx3 < 0 || newx3 > H - 1 || newy3 < 0 || newy3 > W - 1)
 						continue;
-					if (visited[newx][newy] == 0) {
-						visited[newx][newy] = 1;
-						deq.offer(new int[] { newx, newy, level + 1, sum + mat[newx][newy] });
+
+					int sum = mat[x][y] + mat[newx1][newy1] + mat[newx2][newy2] + mat[newx3][newy3];
+					if (sum > ans) {
+//							System.out.println("max changed to" + sum);
+//							System.out.println(x + " " + y);
+						ans = sum;
 					}
+
 				}
 			}
-
 		}
 	}
 

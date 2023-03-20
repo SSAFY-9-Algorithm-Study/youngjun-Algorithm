@@ -71,7 +71,6 @@ public class BOJ20055_컨베이어 {
 			valList.set(N-1, new valRobot(valList.get(N-1).val, false)); //N자리에서 로봇 내림 (로봇만움직였으므로)
 			
 			
-			
 			if(valList.get(0).val>0) {
 				if(valList.get(0).val==1) zeroCnt++;
 				valList.set(0, new valRobot(--valList.get(0).val, true));
