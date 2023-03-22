@@ -3,6 +3,7 @@ package week7.hw;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -26,6 +27,13 @@ public class BOJ17825_주사위윷놀이 {
 			this.curIdx = curIdx;
 			this.available = available;
 		}
+
+		@Override
+		public String toString() {
+			return "Horse [roadIdx=" + roadIdx + ", curIdx=" + curIdx + ", available=" + available + "]";
+		}
+		
+		
 	}
 
 //	static int[][] horse = {{0,0,},{0,0},{0,0},{0,0}};
@@ -69,7 +77,7 @@ public class BOJ17825_주사위윷놀이 {
 
 					// 이미 파란길로 가고 있다면
 					if (roadIdx % 2 == 1 && roadIdx <= 5) {
-						if (curIdx >= roads[roadIdx].length - 1) {
+						if (curIdx > roads[roadIdx].length - 1) {
 							curIdx -= (roads[roadIdx].length - 1);
 							roadIdx = 7;
 							if (curIdx > 3)
@@ -78,6 +86,12 @@ public class BOJ17825_주사위윷놀이 {
 								curScore = roads[roadIdx][curIdx];
 							}
 
+						}
+						
+						else if(curIdx == roads[roadIdx].length - 1) {
+							curIdx = 0;
+							roadIdx = 7;
+							curScore = roads[roadIdx][curIdx];
 						}
 
 						else {
@@ -95,7 +109,7 @@ public class BOJ17825_주사위윷놀이 {
 
 					// 빨간길로 가다 파란색 원에 도착하면
 					else if (curIdx == roads[roadIdx].length - 1) {
-						System.out.println("blue!!");
+//						System.out.println("blue!!");
 						curIdx = 0;
 						roadIdx++;
 						curScore = roads[roadIdx][curIdx];
@@ -103,7 +117,7 @@ public class BOJ17825_주사위윷놀이 {
 
 					// 빨간길로 가다 파란 원을 지나치면
 					else if (curIdx > roads[roadIdx].length - 1) {
-						curIdx -= (roads[roadIdx].length - 1);
+						curIdx -= (roads[roadIdx].length-1);
 						roadIdx += 2;
 						curScore = roads[roadIdx][curIdx];
 					}
@@ -112,26 +126,30 @@ public class BOJ17825_주사위윷놀이 {
 					else {
 						curScore = roads[roadIdx][curIdx];
 					}
+					
 
 					if (canGo(curIdx, roadIdx, horseList)) {
-
+						
 						curHorse.roadIdx = roadIdx;
 						curHorse.curIdx = curIdx;
 						curHorse.available = available;
 
-						score += curScore;
 
+						score += curScore;
 						move(num + 1, horseList, score);
 						System.out.println("cur num is" + (num + 1));
 						System.out.println("cur score is " + score);
-
 						score -= curScore;
-
+						
 						curHorse.roadIdx = tempRoadIdx;
 						curHorse.curIdx = tempCurIdx;
 						curHorse.available = tempAvailable;
-
+						
+						
 					}
+					else
+						return;
+
 				}
 			}
 		}
@@ -139,6 +157,7 @@ public class BOJ17825_주사위윷놀이 {
 	}
 
 	public static boolean canGo(int x, int y, Horse[] horseList) {
+//		System.out.println(Arrays.toString(horseList));
 		for (int i = 0; i < horseList.length; i++) {
 			if (horseList[i].available && horseList[i].curIdx == x && horseList[i].roadIdx == y)
 				return false;

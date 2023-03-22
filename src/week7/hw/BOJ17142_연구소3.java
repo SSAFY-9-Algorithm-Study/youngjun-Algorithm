@@ -70,7 +70,7 @@ public class BOJ17142_연구소3 {
 			}
 		}
 
-		choose(new int[M], 0, 0);
+		combi(new int[M], 0, 0);
 
 		if (ans == Integer.MAX_VALUE)
 			ans = -1;
@@ -80,7 +80,7 @@ public class BOJ17142_연구소3 {
 
 	
 	//조합 선택
-	public static void choose(int[] res, int level, int begin) {
+	public static void combi(int[] res, int level, int begin) {
 		if (level == M) {
 			//선택된 조합을 큐에 담음
 			for (int i = 0; i < res.length; i++) {
@@ -94,7 +94,7 @@ public class BOJ17142_연구소3 {
 			bfs();
 
 			
-			//0이 남아있는 경우 안되는 것으로 판별
+			//0이 남아있는 경우 안되는 것으로 판별 (되도록 배열 다 순회하지 말고 bfs과정에서 구하기)
 			for (int i = 0; i < N; i++) {
 				for (int j = 0; j < N; j++) {
 					if (mat[i][j] == 0) {
@@ -112,8 +112,6 @@ public class BOJ17142_연구소3 {
 				}
 			}
 
-			
-			//
 			if (minTime != -1 && minTime < ans)
 				ans = minTime;
 			
@@ -128,7 +126,7 @@ public class BOJ17142_연구소3 {
 		else {
 			for (int i = begin; i < vir; i++) {
 				res[level] = i;
-				choose(res, level + 1, i + 1);
+				combi(res, level + 1, i + 1);
 			}
 		}
 	}

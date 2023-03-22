@@ -33,7 +33,7 @@ public class BOJ17822_원판돌리기 {
 			this.erased = erased;
 		}
 	}
-
+	//원판의 개수는 고정적인데 왜 리스트? 배열로 선언하자
 	static List<Point[]> circleList = new ArrayList<Point[]>();
 	static int[][] visited;
 	static int sum = 0;
@@ -157,6 +157,8 @@ public class BOJ17822_원판돌리기 {
 	}
 
 	public static void turn(int xi, int di, int ki) {
+		//4번 이상 돌면 나머지를 구해서 돌자
+		//인덱스 햇갈리니까 새로운 배열 만들어 대입하는 방법도 생각하자
 		for (int turns = 0; turns < ki; turns++) {
 			if (di == 1) {
 				for (int i = 0; i < N; i++) {
