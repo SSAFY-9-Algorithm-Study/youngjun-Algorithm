@@ -24,7 +24,7 @@ public class PROG_양궁대회 {
 
 	public static void dfs(int level, int[] arrowList, int[] info, int begin) {
 		//모든 인덱스를 다 돌면 종료
-		if (begin == 10) {
+		if (begin == 10 ) {
 			//남아있는 화살을 마지막 인덱스에 넣기
 			arrowList[10]+=level;
 			int val = calculate(arrowList, info);

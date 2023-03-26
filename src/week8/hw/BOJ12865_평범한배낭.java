@@ -46,8 +46,8 @@ public class BOJ12865_평범한배낭 {
 				}
 				
 				
-				//가방을 넣을 수 있으므로 가방을 넣음(bags[i][1])
-				// 가방을 넣었을 때 남아있는 무게를 토대로 그 무게가 가지는 가치의 최대값을 가져옴(DP[i-1][j-bags[i][0])
+				//가방을 넣을 수 있으므로 가방을 넣음(curPrice)
+				//가방을 넣었을 때 남아있는 무게를 토대로 그 무게가 가지는 가치의 최대값을 가져옴(DP[i-1][j-curWeight])
 				else { 
 					DP[i][j] = Math.max(DP[i-1][j], (curPrice + DP[i-1][j-curWeight]));
 				}
