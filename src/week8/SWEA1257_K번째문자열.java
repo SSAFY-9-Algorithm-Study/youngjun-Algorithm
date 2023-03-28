@@ -1,4 +1,4 @@
-
+package week8;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 
-public class SWEA1257_K¹øÂ°¹®ÀÚ¿­ {
+public class SWEA1257_Kë²ˆì§¸ë¬¸ìì—´ {
 
 	static int T;
 	static int N;
@@ -49,7 +49,7 @@ public class SWEA1257_K¹øÂ°¹®ÀÚ¿­ {
 			});
 //			System.out.println(Arrays.toString(strAndSubs));
 
-			// °¢ Á¢¹Ì»çµéÀÇ Á¢µÎ»çµé ¸ğµÎ ÀúÀå
+			// ï¿½ï¿½ ï¿½ï¿½ï¿½Ì»ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î»ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			for (int i = 0; i < strAndSubs.length; i++) {
 				String curStr = strAndSubs[i].str;
 				for (int j = 0; j < curStr.length(); j++) {
@@ -58,7 +58,7 @@ public class SWEA1257_K¹øÂ°¹®ÀÚ¿­ {
 			}
 			strAndSubs[0].LCP = 0;
 
-			// °¢ Á¢¹Ì»çµéÀÇ LCP ÀúÀå
+			// ï¿½ï¿½ ï¿½ï¿½ï¿½Ì»ï¿½ï¿½ï¿½ï¿½ LCP ï¿½ï¿½ï¿½ï¿½
 			for (int i = 1; i < strAndSubs.length; i++) {
 				String checkStr1 = strAndSubs[i - 1].str;
 				String checkStr2 = strAndSubs[i].str;

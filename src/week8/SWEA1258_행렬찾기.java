@@ -1,3 +1,4 @@
+package week8;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -7,7 +8,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.StringTokenizer;
 
-public class SWEA1258_Çà·ÄÃ£±â {
+public class SWEA1258_í–‰ë ¬ì°¾ê¸°{
 	static class Info {
 		int r;
 		int c;

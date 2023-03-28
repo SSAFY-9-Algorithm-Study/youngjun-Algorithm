@@ -1,10 +1,11 @@
+package week8;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-public class SWEA1259_±İ¼Ó¸·´ëv2 {
+public class SWEA1259_ê¸ˆì†ë§‰ëŒ€v2 {
 
 	static int T;
 	static int N;

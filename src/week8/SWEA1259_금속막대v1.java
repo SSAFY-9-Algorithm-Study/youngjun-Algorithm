@@ -1,3 +1,4 @@
+package week8;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -5,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
-public class SWEA1259_±İ¼Ó¸·´ëv1 {
+public class SWEA1259_ê¸ˆì†ë§‰ëŒ€v1 {
 
 	static int T;
 	static int N;
@@ -57,7 +58,7 @@ public class SWEA1259_±İ¼Ó¸·´ëv1 {
 							DP[i][j] = DP[i - 1][j];
 					} else {
 						if (!(DP[i - 1][j].size()==0) && (DP[i - 1][j].get(0)== rear[i])) {
-							System.out.println("¾Õ¿¡ ºÙÀÏ ¼ö ÀÖÀ½");
+							System.out.println("ï¿½Õ¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 							ArrayList<Integer> list = new ArrayList<>();
 							list.add(front[i]);
 							list.add(rear[i]);

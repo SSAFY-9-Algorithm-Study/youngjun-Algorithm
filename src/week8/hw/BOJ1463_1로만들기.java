@@ -1,8 +1,9 @@
+package week8.hw;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class BOJ1463_1·Î¸¸µé±â {
+public class BOJ1463_1ë¡œë§Œë“¤ê¸° {
 
 	static int[] DP;
 

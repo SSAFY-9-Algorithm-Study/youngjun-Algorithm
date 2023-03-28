@@ -1,4 +1,4 @@
-
+package week8;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -8,7 +8,7 @@ import java.util.Queue;
 import java.util.StringTokenizer;
 
 
-public class SWEA1249_º¸±Þ·Î {
+public class SWEA1249_ë³´ê¸‰ë¡œ{
 
 	static int T;
 	static int N;
