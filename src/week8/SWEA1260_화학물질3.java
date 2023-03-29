@@ -4,11 +4,10 @@ import java.io.InputStreamReader;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Deque;
-import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
 
-public class SWEA1260_화학물질2 {
+public class SWEA1260_화학물질3 {
 
 	static int T;
 	static int N;
@@ -76,37 +75,31 @@ public class SWEA1260_화학물질2 {
 				ansList.add(new Tuple(front.get(i), rearItem));
 				dfs(rearItem);
 				if (ansList.size() == front.size()) {
-
 					finalAnsList = ansList;
 				}
 			}
 
-			getMaxCal(finalAnsList, 0);
-			System.out.println("#" + t + " " + multiMax);
+			int matrixCnt = finalAnsList.size();
+			int[][] DP = new int[matrixCnt + 1][matrixCnt + 1];
 
-		}
-	}
+			for (int i = matrixCnt; i >= 1; i--) {
+				for (int j = 1; j <= matrixCnt; j++) {
 
-	private static void getMaxCal(ArrayList<Tuple> tupleList, int multi) {
-		if (tupleList.size() == 1) {
-			multiMax = Math.min(multi, multiMax);
-		} else {
-			for (int i = 0; i < tupleList.size() - 1; i++) {
-				ArrayList<Tuple> newTupleList = (ArrayList<Tuple>) tupleList.clone();
-				Tuple firstTuple = newTupleList.get(i);
-				Tuple secondTuple = newTupleList.get(i + 1);
-				Tuple newTuple = new Tuple(firstTuple.frontItem, secondTuple.rearItem);
+					if (i >= j)
+						continue;
+					DP[i][j] = Integer.MAX_VALUE;
 
-				int cal = multi + calMulti(firstTuple, secondTuple);
-				newTupleList.set(i, newTuple);
-				newTupleList.remove(i + 1);
-				getMaxCal(newTupleList, cal);
+					for (int k = i; k < j; k++) {
+						DP[i][j] = Math.min(DP[i][j], DP[i][k] + DP[k + 1][j] + finalAnsList.get(i - 1).frontItem
+								* finalAnsList.get(k - 1).rearItem * finalAnsList.get(j - 1).rearItem);
+					}
+
+				}
 			}
-		}
-	}
 
-	private static int calMulti(Tuple tuple, Tuple tuple2) {
-		return tuple.frontItem * tuple.rearItem * tuple2.rearItem;
+			System.out.println("#" + t + " " + DP[1][matrixCnt]);
+
+		}
 	}
 
 	private static void dfs(int rearItem) {
@@ -118,7 +111,6 @@ public class SWEA1260_화학물질2 {
 				break;
 			}
 		}
-
 	}
 
 	private static void bfs(int x, int y) {

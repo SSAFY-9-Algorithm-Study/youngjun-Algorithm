@@ -1,4 +1,3 @@
-package week8;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -29,7 +28,7 @@ public class SWEA1259_금속막대v1 {
 			for (int i = 1; i <= N; i++) {
 				front[i] = Integer.parseInt(st.nextToken());
 				rear[i] = Integer.parseInt(st.nextToken());
-				maxRear = Math.max(front[i], Math.max(rear[i], maxRear))  ;
+				maxRear = Math.max(front[i], Math.max(rear[i], maxRear));
 			}
 			DP = new ArrayList[N + 1][maxRear + 1];
 
@@ -52,12 +51,12 @@ public class SWEA1259_금속막대v1 {
 						newList.add(front[i]);
 						newList.add(rear[i]);
 //						System.out.println("concat is " + concat);
-						if (DP[i - 1][j].size()==0 || newList.size() > DP[i - 1][j].size())
+						if (DP[i - 1][j].size() == 0 || newList.size() > DP[i - 1][j].size())
 							DP[i][j] = newList;
 						else
 							DP[i][j] = DP[i - 1][j];
 					} else {
-						if (!(DP[i - 1][j].size()==0) && (DP[i - 1][j].get(0)== rear[i])) {
+						if (!(DP[i - 1][j].size() == 0) && (DP[i - 1][j].get(0) == rear[i])) {
 							System.out.println("�տ� ���� �� ����");
 							ArrayList<Integer> list = new ArrayList<>();
 							list.add(front[i]);
