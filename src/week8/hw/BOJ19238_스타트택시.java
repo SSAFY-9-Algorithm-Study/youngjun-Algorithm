@@ -83,28 +83,27 @@ public class BOJ19238_스타트택시 {
 					break;
 				}
 				if (minDist >= dist) {
-					
-					if(minDist>dist) {
+
+					if (minDist > dist) {
 						minPerson = curPerson;
 						minDist = dist;
 					}
-						
+
 					else {
 						if (minPerson != null && curPerson.x <= minPerson.x) {
 							if (curPerson.x < minPerson.x)
 								minPerson = curPerson;
 							else if (curPerson.y < minPerson.y)
 								minPerson = curPerson;
-						}
-						else if(minPerson==null) {
+						} else if (minPerson == null) {
 							minPerson = curPerson;
 						}
 					}
-					
+
 				}
 			}
 			fuel -= minDist;
-			
+
 			// fuel이 0보다 작을 때 처리1(없으면 nullpointerException)
 			if (fuel < 0) {
 				fuel = -1;
@@ -117,8 +116,7 @@ public class BOJ19238_스타트택시 {
 				break;
 			}
 			fuel -= dist;
-			
-			
+
 			// fuel이 0보다 작을 때 처리2(없으면 nullpointerException)
 			if (fuel < 0) {
 				fuel = -1;

@@ -13,14 +13,14 @@ public class BOJ20056_마법사상어와파이어볼 {
 	static int M;
 	static int K;
 	static int[][] mat;
-	//파이어볼 리스트
+	// 파이어볼 리스트
 	static List<Ball> ballList = new ArrayList<>();
-	//이동마다 갱신할 파이어볼 리스트
+	// 이동마다 갱신할 파이어볼 리스트
 	static List<Ball> newBallList = new ArrayList<>();
-	//ballList 삭제위한 temp
+	// ballList 삭제위한 temp
 	static List<Ball> tempBallList = new ArrayList<>();
-	
-	//0-7방향 dx,dy
+
+	// 0-7방향 dx,dy
 	static int[] dx = { -1, -1, 0, 1, 1, 1, 0, -1 };
 	static int[] dy = { 0, 1, 1, 1, 0, -1, -1, -1 };
 	static int ans;
@@ -62,8 +62,8 @@ public class BOJ20056_마법사상어와파이어볼 {
 		for (int i = 0; i < K; i++) {
 			iterateBall();
 			sumAndDivide();
-			
-			//이동마다 ballList갱신 및 newBallList 초기
+
+			// 이동마다 ballList갱신 및 newBallList 초기
 			ballList = new ArrayList<>(newBallList);
 			newBallList.clear();
 		}
@@ -84,8 +84,7 @@ public class BOJ20056_마법사상어와파이어볼 {
 		int weight;
 		int oddCnt = 0;
 		int evenCnt = 0;
-		
-		
+
 		while (!ballList.isEmpty()) {
 			// 첫번째 파이어볼 가져오고 정보 저장
 			Ball curBall = ballList.get(0);
@@ -100,7 +99,7 @@ public class BOJ20056_마법사상어와파이어볼 {
 				oddCnt++;
 			ballList.remove(0);
 			tempBallList = new ArrayList<>(ballList);
-			
+
 			// ballList들에 대해 첫번째 파이어볼과 같은 위치 값가져와 질량, 속도 더해줌
 			for (int i = 0; i < tempBallList.size(); i++) {
 				curBall = tempBallList.get(i);
@@ -116,8 +115,7 @@ public class BOJ20056_마법사상어와파이어볼 {
 				}
 
 			}
-			
-			
+
 			// 두 개이상의 파이어볼 있을 때
 			if (ballCnt > 1) {
 				weight /= 5;
@@ -136,9 +134,8 @@ public class BOJ20056_마법사상어와파이어볼 {
 				}
 
 			}
-			
-			
-			//해당 위치에 하나의 파이어볼만 있을 때
+
+			// 해당 위치에 하나의 파이어볼만 있을 때
 			else {
 				if (weight != 0)
 					newBallList.add(new Ball(x, y, weight, speed, dir));
@@ -151,8 +148,7 @@ public class BOJ20056_마법사상어와파이어볼 {
 		}
 	}
 
-	
-	//이동
+	// 이동
 	private static void iterateBall() {
 		int dir = 0;
 		int speed = 0;

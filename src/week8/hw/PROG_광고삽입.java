@@ -34,10 +34,6 @@ public class PROG_광고삽입 {
 
 	}
 	
-//	public static void main(String[] args) {
-//		System.out.println(new Solution().solution("50:00:00", "50:00:00", new String[] {"15:36:51-38:21:49", "10:14:18-15:36:51", "38:21:49-42:51:45"}));
-//	}
-	
 	public String solution(String play_time, String adv_time, String[] logs) {
 		String answer = "";
 		startTime = new int[logs.length * 2 + 1];
@@ -45,13 +41,6 @@ public class PROG_광고삽입 {
 
 		startTime[0] = 0;
 
-//		for (int i = 0; i < logs.length; i += 2) {
-//			startTime[i + 1] = timeConverter(logs[i].substring(0, 8));
-//			int val = timeConverter(logs[i].substring(9)) - timeConverter(adv_time);
-//			if (val<0) val = 0;
-//			startTime[i + 2] = val;
-//
-//		}
 
 		for (int i = 0; i < logs.length; i++) {
 			edgeTime[i] = new Time(timeConverter(logs[i].substring(0, 8)), timeConverter(logs[i].substring(9)));
@@ -64,9 +53,6 @@ public class PROG_광고삽입 {
 		Arrays.sort(startTime);
 		Arrays.sort(edgeTime);
 		Arrays.sort(logs);
-//			System.out.println(Arrays.toString(logs));
-//			System.out.println(Arrays.toString(startTime));
-//			System.out.println(Arrays.toString(edgeTime));
 
 		for (int i = 0; i < startTime.length; i++) {
 			int dupTime = 0;
@@ -89,14 +75,10 @@ public class PROG_광고삽입 {
 			}
 		}
 
-//			System.out.println(Arrays.toString(startTime));
-//			System.out.println(ans);
 		if (ansIdx == 0)
 			answer = "00:00:00";
 		else {
 			answer = timeToStr(startAns);
-//				System.out.println(logs[ansIdx - 1].substring(0, 8));
-//				System.out.println(timeToStr(startAns));
 		}
 
 		return answer;
