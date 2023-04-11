@@ -51,6 +51,8 @@ public class BOJ20057_마법사상어와토네이도 {
 
 	}
 
+	// repeat 만큼 이동을 2번씩 함
+	// 2번 이동할때마다 repeat 증가
 	private static void move() {
 		int newx = curx;
 		int newy = cury;

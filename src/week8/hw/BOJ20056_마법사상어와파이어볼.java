@@ -121,6 +121,7 @@ public class BOJ20056_마법사상어와파이어볼 {
 				weight /= 5;
 				speed = speed / ballCnt;
 				if (weight > 0) {
+					// 모두 홀수이거나 짝수
 					if (oddCnt == 0 || evenCnt == 0) {
 						for (int i = 0; i < 4; i++) {
 							newBallList.add(new Ball(x, y, weight, speed, 2 * i));

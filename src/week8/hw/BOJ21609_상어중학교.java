@@ -99,7 +99,7 @@ public class BOJ21609_상어중학교 {
 			visited = new int[N][N];
 			size = 0;
 
-			// bfs 탐
+			// bfs 탐색
 			for (int i = 0; i <= N - 1; i++) {
 				for (int j = 0; j <= N - 1; j++) {
 					if (visited[i][j] == 0 && mat[i][j] > 0) {
