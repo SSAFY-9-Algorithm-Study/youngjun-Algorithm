@@ -16,7 +16,7 @@ public class BOJ20951_유아와곰두리차 {
 		st = new StringTokenizer(br.readLine());
 		int N = Integer.parseInt(st.nextToken());
 		int M = Integer.parseInt(st.nextToken());
-		int sum = 0;
+		long sum = 0;
 		List<Integer>[] arr = new List[N + 1];
 		for (int i = 1; i < N + 1; i++) {
 			arr[i] = new ArrayList<>();
@@ -40,21 +40,16 @@ public class BOJ20951_유아와곰두리차 {
 			for (int j = 1; j < N + 1; j++) {
 				for (int j2 = 0; j2 < arr[j].size(); j2++) {
 					int linkVal = arr[j].get(j2);
-					dp[i][j]+= (dp[i-1][linkVal]%=(Math.pow(10, 9) + 7));
+					dp[i][j] = (dp[i-1][linkVal] + dp[i][j]%(1_000_000_000 + 7));
+					dp[i][j]%=(1_000_000_000 + 7);
 				}
-				dp[i][j]%=(Math.pow(10, 9) + 7);
 			}
 			
 		}
-		for (int i = 1; i < 8 ; i++) {
-			System.out.println();
-			for (int j = 1; j < N+1; j++) {
-				System.out.print(dp[i][j] + " ");
-			}
-		}
+
 		
 		for (int i = 1; i < N+1; i++) {
-			sum+=(dp[7][i]%=(Math.pow(10, 9) + 7));
+			sum =(sum + dp[7][i])% (1_000_000_000 + 7);
 		}
 		System.out.println(sum);
 	}
