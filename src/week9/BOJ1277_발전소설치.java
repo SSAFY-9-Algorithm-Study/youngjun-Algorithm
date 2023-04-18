@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class BOJ1277_발전소설치 {
-	static int[][] mat;
+	static long[][] mat;
 	
 	
 	public static void main(String[] args) throws IOException {
@@ -15,19 +15,18 @@ public class BOJ1277_발전소설치 {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st;
 		
-		
 		st = new StringTokenizer(br.readLine());
 		int N = Integer.parseInt(st.nextToken());
 		int W = Integer.parseInt(st.nextToken());
 		double M = Double.parseDouble(br.readLine());
-		mat = new int[N+1][N+1];
+		mat = new long[N+1][N+1];
 		double[][] dp = new double[N+1][N+1];
 		
 		
 		
 		for (int i = 1; i <= N; i++) {
 			st = new StringTokenizer(br.readLine());
-			mat[i] = new int[] {Integer.parseInt(st.nextToken()),Integer.parseInt(st.nextToken())};
+			mat[i] = new long[] {Integer.parseInt(st.nextToken()),Integer.parseInt(st.nextToken())};
 			
 		}
 		
@@ -77,21 +76,21 @@ public class BOJ1277_발전소설치 {
 			}
 		}
 		
-		System.out.println(Math.round( dp[1][N]*1000));
-		for (int i = 1; i <= N; i++) {
-		System.out.println();
-		for (int j = 1; j <= N; j++) {
-			System.out.print(dp[i][j] + " ");
-		}
-	}
+		System.out.println((int) Math.floor(dp[1][N]*1000));
+//		for (int i = 1; i <= N; i++) {
+//		System.out.println();
+//		for (int j = 1; j <= N; j++) {
+//			System.out.print(dp[i][j] + " ");
+//		}
+//	}
 		
 	}
 	
 	public static double distCal(int elOne, int elTwo) {
-		int arr1X = mat[elOne][0];
-		int arr1Y = mat[elOne][1];
-		int arr2X = mat[elTwo][0];
-		int arr2Y = mat[elTwo][1];
+		long arr1X = mat[elOne][0];
+		long arr1Y = mat[elOne][1];
+		long arr2X = mat[elTwo][0];
+		long arr2Y = mat[elTwo][1];
 		return Math.sqrt(Math.pow(Math.abs(arr1X-arr2X), 2) + Math.pow(Math.abs(arr1Y-arr2Y), 2));
 	}
 
