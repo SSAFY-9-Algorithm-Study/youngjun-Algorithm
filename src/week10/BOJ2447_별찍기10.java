@@ -10,16 +10,16 @@ public class BOJ2447_별찍기10 {
 	static int N;
 	static String[][][] dp;
 	static int[] visited;
-	static BufferedWriter buf =  new BufferedWriter(new OutputStreamWriter(System.out));;
+	static BufferedWriter buf =  new BufferedWriter(new OutputStreamWriter(System.out));
 
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		N = Integer.parseInt(br.readLine());
 		int log3N = (int) (Math.log10(N) / Math.log10(3));
-//		System.out.println("log3n is " + log3N);
 		dp = new String[log3N + 1][N][N];
 		visited = new int[N + 1];
 
+		// 로그를 취하므로 n=3 일때답은 dp[1], n=9 -> dp[2]
 		dp[1] = new String[][] { { "*", "*", "*" }, { "*", " ", "*" }, { "*", "*", "*" } };
 		visited[1] = 1;
 
@@ -32,7 +32,6 @@ public class BOJ2447_별찍기10 {
 				}
 				System.out.println();
 			}
-			
 		}
 		else
 			printStar(N);
@@ -40,8 +39,6 @@ public class BOJ2447_별찍기10 {
 	}
 
 	public static void printStar(int n) throws IOException {
-//		System.out.println("visiting " + (n));
-
 		int mod = n / 3;
 		int log3N = (int) (Math.log10(n) / Math.log10(3));
 
@@ -50,12 +47,10 @@ public class BOJ2447_별찍기10 {
 		}
 		
 		if (visited[n / 3] == 0) {
-			
 			printStar(n / 3);
 		}
 
 		for (int i = 0; i < n; i++) {
-
 			for (int j = 0; j < n; j++) {
 				if (i >= mod && i < n - mod && j >= mod && j < n - mod)
 					dp[log3N][i][j] = " ";
