@@ -68,7 +68,6 @@ public class BOJ1261_알고스팟 {
 				if (newx < 0 || newx > H - 1 || newy < 0 || newy > W - 1)
 					continue;
 				// 벽을 깨는 횟수가 최대를 넘어가지 않는다면
-				// 벽을 깨는 횟수가 이전에 벽을 깬 횟수보다 커도 저장해야 하는가??
 				if (mat[newx][newy] == 1 && breakCnt + 1 < oneCnt && visited[breakCnt + 1][newx][newy] == 0) {
 					visited[breakCnt + 1][newx][newy] = 1;
 					deq.offer(new int[] { newx, newy, breakCnt + 1 });

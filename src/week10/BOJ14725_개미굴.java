@@ -67,35 +67,34 @@ public class BOJ14725_개미굴 {
 
 		// 지워야 하는 string들을 모든 정보리스트마다 이전 정보리스트와 비교하면서 체크
 		for (int i = 1; i < infoList.size(); i++) {
-			List<StringInfo> lastInfo = infoList.get(i-1);
+			List<StringInfo> lastInfo = infoList.get(i - 1);
 			List<StringInfo> curInfo = infoList.get(i);
 			for (int j = 0; j < curInfo.size(); j++) {
 				String lastString = lastInfo.get(j).str;
 				String curString = curInfo.get(j).str;
-				
-					if(lastString.equals(curString)) {
-						curInfo.get(j).erase = true;
-					}
-					else {
-						break;
-					}
+
+				if (lastString.equals(curString)) {
+					curInfo.get(j).erase = true;
+				} else {
+					break;
+				}
 			}
 
 		}
-		
+
 		// erase로 체크된 stringinfo는 출력하지 않고 나머지만 index*2만큼 - 를 붙여서 출력
 		for (int i = 0; i < infoList.size(); i++) {
 			List<StringInfo> curInfo = infoList.get(i);
 			for (int j = 0; j < curInfo.size(); j++) {
 				StringInfo curStringInfo = curInfo.get(j);
-				
-				if(!curStringInfo.erase) {
-					for (int k = 0; k < j*2; k++) {
+
+				if (!curStringInfo.erase) {
+					for (int k = 0; k < j * 2; k++) {
 						System.out.print("-");
 					}
 					System.out.println(curStringInfo.str);
 				}
-				
+
 			}
 		}
 
