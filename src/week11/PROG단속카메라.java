@@ -2,7 +2,7 @@ package week11;
 
 import java.util.*;
 
-public class Solution {
+public class PROG단속카메라 {
 
 	static class Route implements Comparable<Route> {
 		int start;
