@@ -8,7 +8,6 @@ public class BOJ11559_PuyoPuyo {
 	static int H = 12;
 	static int W = 6;
 	static char[][] arr = new char[H][W];
-	static boolean breakable = true;
 
 	static int[] dx = { -1, 1, 0, 0 };
 	static int[] dy = { 0, 0, -1, 1 };
@@ -36,6 +35,7 @@ public class BOJ11559_PuyoPuyo {
 		boolean opearatable = false;
 		visited = new int[H][W];
 		ans = Math.max(ans, times);
+//		ans++;
 		for (int i = 0; i < H; i++) {
 			for (int j = 0; j < W; j++) {
 				if (arr[i][j] != '.') {
@@ -61,9 +61,7 @@ public class BOJ11559_PuyoPuyo {
 		if (opearatable) {
 			char[][] newArr = iterateChars(arr);
 			operate(new int[H][W], newArr, times + 1);
-
 		}
-
 	}
 
 	private static char[][] iterateChars(char[][] arr) {

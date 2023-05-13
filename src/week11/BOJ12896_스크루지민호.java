@@ -15,6 +15,8 @@ public class BOJ12896_스크루지민호 {
 	// 블로깅...필요
 	// 후후후
 	// 트리의 개념은 무엇이고, 트리의 지름을 구하는 방법은 무엇인지 알자
+	// https://bigsong.tistory.com/33
+	
 
 	static int N;
 	static List<Integer>[] nodeList;
