@@ -69,14 +69,18 @@ public class BOJ3109_빵집 {
 //				System.out.println("res is not null");
 			if (possible)
 				ans++;
+			
 			checkWay(endNode);
-
-//				for (int j = 0; j < H; j++) {
-//					System.out.println();
-//					for (int j2 = 0; j2 < W; j2++) {
-//						System.out.print(visited[j][j2]);
-//					}
-//				}
+			System.out.println();
+			System.out.println("ans is " + ans);
+			System.out.println();
+			
+			for (int j = 0; j < H; j++) {
+				System.out.println();
+				for (int j2 = 0; j2 < W; j2++) {
+					System.out.print(visited[j][j2]);
+				}
+			}
 
 		}
 		System.out.println(ans);
