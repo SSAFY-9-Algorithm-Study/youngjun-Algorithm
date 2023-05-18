@@ -75,6 +75,8 @@ public class BOJ8982_수족관 {
 
 		for (Hole hole : holeList) {
 //			System.out.println(hole);
+
+			// 밑으로 파인 구멍인지, 위로 솟은 구멍인지
 			int startIdx = hole.startW - 1;
 			visited[hole.startW] = 1;
 			int endIdx = hole.endW;
@@ -83,18 +85,40 @@ public class BOJ8982_수족관 {
 				waterLev[i] -= hole.h;
 			}
 
-			while (startIdx >= 0 && waterLev[startIdx] > hole.h && visited[startIdx] == 0) {
-				waterLev[startIdx] -= hole.h;
-				visited[startIdx] = 1;
-//				System.out.println("erased " + startIdx + " left is " + waterLev[startIdx]);
-				startIdx--;
+//			System.out.println(isDownHole(hole.startW, hole.endW));
+			if (!isDownHole(hole.startW, hole.endW)) {
+				while (startIdx >= 0 && waterLev[startIdx] > hole.h && visited[startIdx] == 0) {
+					waterLev[startIdx] -= hole.h;
+					visited[startIdx] = 1;
+//					System.out.println("erased " + startIdx + " left is " + waterLev[startIdx]);
+					startIdx--;
+				}
+				while (endIdx < width && waterLev[endIdx] > hole.h && visited[endIdx] == 0) {
+					waterLev[endIdx] -= hole.h;
+					visited[endIdx] = 1;
+//					System.out.println("erased " + endIdx + " left is " + waterLev[endIdx]);
+					endIdx++;
+				}
 			}
-			while (endIdx < width && waterLev[endIdx] > hole.h && visited[endIdx] == 0) {
-				waterLev[endIdx] -= hole.h;
-				visited[endIdx] = 1;
-//				System.out.println("erased " + endIdx + " left is " + waterLev[endIdx]);
-				endIdx++;
+
+			else {
+
+				while (startIdx >= 0 && waterLev[startIdx] < waterLev[startIdx + 1] && visited[startIdx] == 0) {
+					waterLev[startIdx] = 0;
+					visited[startIdx] = 1;
+//					System.out.println("erased " + startIdx + " left is " + waterLev[startIdx]);
+					startIdx--;
+				}
+
+				while (endIdx < width && waterLev[endIdx] < waterLev[endIdx - 1] && visited[endIdx] == 0) {
+					waterLev[endIdx] = 0;
+					visited[endIdx] = 1;
+//					System.out.println("erased " + endIdx + " left is " + waterLev[endIdx]);
+					endIdx++;
+				}
+
 			}
+
 		}
 
 //		System.out.println(Arrays.toString(waterLev));
@@ -104,6 +128,16 @@ public class BOJ8982_수족관 {
 			ans += waterLev[i];
 		}
 		System.out.println(ans);
+	}
+
+	public static boolean isDownHole(int startW, int endW) {
+		boolean isDownHole = true;
+		if (startW - 1 >= 0 && waterLev[startW - 1] > waterLev[startW])
+			isDownHole = false;
+		if (endW - 1 < width && waterLev[endW] < waterLev[endW + 1])
+			isDownHole = false;
+		return isDownHole;
+
 	}
 
 }
