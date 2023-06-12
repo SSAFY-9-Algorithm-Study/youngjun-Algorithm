@@ -3,15 +3,6 @@ package week14;
 import java.util.*;
 import java.io.*;
 
-//1
-//7 6
-//4 5
-//6 7
-//1 2
-//3 2
-//1 3
-//7 3
-
 public class BOJ1707_이분그래프 {
 
 	static int T, V, E;
