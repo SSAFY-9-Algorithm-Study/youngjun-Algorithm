@@ -30,7 +30,6 @@ public class BOJ1234_크리스마스트리 {
 	}
 
 	private static void dfs(int lev, long cases) {
-//		System.out.println("lev : " + lev + "cases " + cases);
 		
 		if(lev>N) {
 			ans+=cases;
@@ -79,7 +78,6 @@ public class BOJ1234_크리스마스트리 {
 			caseCnt*=(lev-i-lev/3);
 			caseCnt/=(i+1);
 		}
-//		System.out.println(caseCnt);
 		divideThreeDfs(lev, cases, caseCnt);
 	}
 	
