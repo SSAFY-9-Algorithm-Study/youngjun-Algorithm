@@ -23,13 +23,14 @@ public class BOJ2482_색상환 {
 			visited[i][0] = true;
 			visited[i][1] = true;
 		}
-
+		
+	
 		System.out.println((dp(N - 1, M) + dp(N - 3, M - 1)) % MOD);
 	}
 
 	private static long dp(int i, int j) {
 		if (!visited[i][j]) {
-			if (j * 2 > i + 1 || j > i)
+			if (j * 2 > i + 1 || j > i) 
 				return 0;
 
 			DP[i][j] = (dp(i - 1, j) + dp(i - 2, j - 1)) % MOD;
