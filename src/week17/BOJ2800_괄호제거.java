@@ -81,7 +81,7 @@ public class BOJ2800_괄호제거 {
 			}
 		}
 
-		// 무조건 append 해줌
+		// 괄호가 아니면 무조건 append 해줌
 		else {
 			sb.append(curChar);
 			dfs(idx + 1, sb, brackOpened);
