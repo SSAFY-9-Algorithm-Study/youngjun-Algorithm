@@ -25,7 +25,10 @@ public class BOJ2252_줄세우기 {
 		M = Integer.parseInt(st.nextToken());
 		nodeList = new Node[N + 1];
 		visited = new boolean[N + 1];
-		Arrays.fill(nodeList, new Node());
+		for (int i = 1; i <= N; i++) {
+			nodeList[i] = new Node();
+		}
+
 		for (int i = 0; i < M; i++) {
 			st = new StringTokenizer(br.readLine());
 			int front = Integer.parseInt(st.nextToken());
@@ -36,7 +39,7 @@ public class BOJ2252_줄세우기 {
 
 		for (int i = 1; i <= N; i++) {
 			nodeList[i].val = i;
-			if (nodeList[i].frontNode.isEmpty()) {
+			if (nodeList[i].frontNode.size() == 0) {
 				que.add(nodeList[i]);
 				visited[i] = true;
 			}
@@ -63,9 +66,11 @@ public class BOJ2252_줄세우기 {
 		for (int i = 0; i < node.frontNode.size(); i++) {
 			if (!visited[node.frontNode.get(i)]) {
 				addFrontNodes(nodeList[node.frontNode.get(i)]);
-				que.add(node);
-				visited[node.frontNode.get(i)] = true;
 			}
+		}
+		if (!visited[node.val]) {
+			que.add(node);
+			visited[node.val] = true;
 		}
 
 	}
