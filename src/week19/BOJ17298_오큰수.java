@@ -40,9 +40,7 @@ public class BOJ17298_오큰수 {
 
 	private static int checkTempStack(int val) {
 		int res = -1;
-//		System.out.println("val is " + val);
 		while (!tempStack.isEmpty()) {
-//			System.out.println(tempStack);
 			int curTop = tempStack.peekLast();
 			if (curTop > val) {
 				res = curTop;
