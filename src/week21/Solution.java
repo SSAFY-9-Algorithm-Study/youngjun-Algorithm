@@ -1,41 +1,62 @@
 package week21;
 
 class Solution {
-	static int[] divisor = new int[5_000_001];
-	static int[] maxDivisorIdx = new int[5_000_001];
-	static int curIdx;
-	static int minStart = Integer.MAX_VALUE;
-	static int max;
+	public int solution(String s) {
+		return divAndCon(s) ? 1 : 0;
+	}
 
-	public int[] solution(int e, int[] starts) {
-		int[] answer = new int[starts.length];
-		for (int i = 2; i <= e; i++) {
-			int multi = 1;
-			while (true) {
-				curIdx = i * multi++;
-				if (curIdx > e)
-					break;
-				divisor[curIdx]++;
+	private boolean divAndCon(String s) {
+		if(s.length()==0 || s==null) return true;
+		boolean initStart = false;
+		char firstChar = 'A';
+		StringBuilder sb = new StringBuilder();
+		
+		for (int i = 0; i < s.length() ; i++) {
+			char curChar = s.charAt(i);
+			if(!initStart) {
+				firstChar = curChar;
+				initStart = true;
+			}
+			else if(curChar == firstChar) {
+//				System.out.println("same");
+				if(!divAndCon(sb.toString())) return false;
+				sb.setLength(0);
+				initStart = false;
+			}
+			else {
+				sb.append(curChar);
 			}
 		}
-
-		for (int start : starts) {
-			minStart = Math.min(minStart, start);
-		}
-		maxDivisorIdx[e] = e;
-
-		for (int i = e - 1; i >= minStart; i--) {
-			if (divisor[maxDivisorIdx[i + 1]] > divisor[i]) {
-				maxDivisorIdx[i] = maxDivisorIdx[i + 1];
-			} else {
-				maxDivisorIdx[i] = i;
-			}
-		}
-
-		for (int i = 0; i < starts.length; i++) {
-			answer[i] = maxDivisorIdx[starts[i]];
-		}
-
-		return answer;
+		if(initStart) return false;
+//		System.out.println("true!");
+		return true;
+		
 	}
 }
+
+//a bbcd a a dc a
+
+
+//
+//class Solution {
+//    public int solution(String s) {
+//
+//        Deque<Character> deq = new LinkedList();
+//
+//        for (int i = 0; i < s.length(); i++) {
+//
+//            char c = s.charAt(i);
+//
+//            if (!deq.isEmpty() && deq.peek() == c) {
+//                deq.pollLast();
+//            } else {
+//                deq.add(c);
+//            }
+//        }
+//
+//        if (deq.isEmpty()) {
+//            return 1;
+//        }
+//        return 0;
+//    }
+//}
